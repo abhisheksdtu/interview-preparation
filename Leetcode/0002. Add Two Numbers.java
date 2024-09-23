@@ -8,6 +8,26 @@
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+/*
+    APPROACH
+    1. Create a dummy node to simplify result list handling.
+    2. Initialize pointers `p1` for `l1`, `p2` for `l2`, and `p3` for the dummy list.
+    3. Initialize a variable `carry` to handle any values greater than 9.
+    4. Traverse both lists using `p1` and `p2`, and calculate the sum at each step: 
+       - Add the values of the current nodes from `l1` and `l2` (use 0 if one list is shorter).
+       - Add the `carry` from the previous step.
+       - Update the carry and the current node value.
+    5. If there is a carry left after both lists are fully traversed, add a new node for the carry value.
+
+    TIME COMPLEXITY
+    - O(max(n, m)), where `n` is the length of `l1` and `m` is the length of `l2`.
+     We process both lists until the longest list is fully traversed.
+
+    SPACE COMPLEXITY
+    - O(max(n, m)), since we create a new linked list that represents the sum of the input lists. 
+    The length of this list will be the same as the longer of the two input lists plus an extra node if there is a carry at the end.
+*/
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
