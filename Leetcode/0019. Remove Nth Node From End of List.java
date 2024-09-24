@@ -7,6 +7,7 @@
     3. Move the fast pointer n steps ahead of slow, creating a gap of n nodes between the two pointers.
     4. Move both fast and slow pointers together until fast reaches the end of the list.
     5. At this point, slow.next will be the node to be removed. Adjust the next pointer of slow to skip this node.
+    
     6. Return the list starting from dummy.next, which excludes the dummy node.
 
     TIME COMPLEXITY
