@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/
-
 /*
     APPROACH
     1. Traverse the array to count the number of "decreasing points" or "breaks" where an element is greater than the next element.
