@@ -13,7 +13,6 @@
 
     SPACE COMPLEXITY
     - O(1), as no additional space is used apart from variables.
-
 */
 
 class Solution {
