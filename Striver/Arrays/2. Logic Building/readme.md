@@ -1,4 +1,3 @@
-````markdown
 # Java Code Revision
 
 This document compiles various Java solutions for popular coding problems along with detailed comments on each approach. The problems covered are:
