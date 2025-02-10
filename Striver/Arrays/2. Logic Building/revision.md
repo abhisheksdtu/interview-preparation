@@ -1,16 +1,17 @@
 # Java Code Revision
-
+<a id="top"></a>
 This document compiles various Java solutions for popular coding problems along with detailed comments on each approach. The problems covered are:
 
-1. **Move Zeros to End**
-2. **Remove Duplicates from Sorted Array**
-3. **Find Missing Number**
-4. **Union of Two Sorted Arrays**
-5. **Intersection of Two Sorted Arrays**
+- [1. Move Zeros to End](#move-zeros-to-end)
+- [2. Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
+- [3. Find Missing Number](#find-missing-number)
+- [4. Union of Two Sorted Arrays](#union-of-two-sorted-arrays)
+- [5. Intersection of Two Sorted Arrays](#intersection-of-two-sorted-arrays)
 
 ---
 
-## 1. Move Zeros to End
+<a id="move-zeros-to-end"></a>
+## 1. Move Zeros to End [[Back to Top](#top)]
 
 ### 1.1 Brute Approach – Using Extra List (Inefficient)
 ```java
@@ -134,8 +135,8 @@ class Solution {
 ```
 
 ---
-
-## 2. Remove Duplicates from Sorted Array
+<a id="remove-duplicates-from-sorted-array"></a>
+## 2. Remove Duplicates from Sorted Array [[Back to Top](#top)]
 
 ### 2.1 Approach – Using TreeSet (Inefficient)
 ```java
@@ -209,7 +210,8 @@ class Solution {
 
 ---
 
-## 3. Find Missing Number
+<a id="find-missing-number"></a>
+## 3. Find Missing Number [[Back to Top](#top)]
 
 ### 3.1 Brute Approach – Brute Force (Inefficient)
 ```java
@@ -350,7 +352,8 @@ class Solution {
 
 ---
 
-## 4. Union of Two Sorted Arrays
+<a id="union-of-two-sorted-arrays"></a>
+## 4. Union of Two Sorted Arrays [[Back to Top](#top)]
 
 ### 4.1 Brute Approach – Using TreeSet
 ```java
@@ -467,7 +470,8 @@ class Solution {
 
 ---
 
-## 5. Intersection of Two Sorted Arrays
+<a id="intersection-of-two-sorted-arrays"></a>
+## 5. Intersection of Two Sorted Arrays [[Back to Top](#top)]
 
 ### 5.1 Brute Approach – Two Pointers (with Boolean Array)
 ```java
