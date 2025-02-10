@@ -42,7 +42,7 @@ class Solution {
 
 
 /*
-    OPTIMAL APPROACH - TWO POINTERS (IN-PLACE)
+    BETTER APPROACH - TWO POINTERS (IN-PLACE)
     1. Find the first zero in the array and store its index in `i`.
        - If no zero is found, return as the array is already valid.
     2. Use `j` to traverse the array from `i+1` onwards.
@@ -80,6 +80,36 @@ class Solution {
         nums[i] = nums[j];
         nums[j] = t;
         i++;
+      }
+    }
+  }
+}
+
+/*
+    OPTIMAL APPROACH - IN-PLACE SWAPPING (OPTIMAL)
+    1. Use a pointer `j` to track the position where the next non-zero element should be placed.
+    2. Traverse `nums`:
+       - If `nums[i]` is non-zero, swap it with `nums[j]` and increment `j`.
+    3. This ensures all non-zero elements are moved forward, and zeroes are pushed to the end.
+
+    TIME COMPLEXITY
+    - O(N), since we traverse the array once.
+
+    SPACE COMPLEXITY
+    - O(1), as we modify the array in-place.
+*/
+
+class Solution {
+  public void moveZeroes(int[] nums) {
+    int j = 0; // Pointer for non-zero elements
+
+    // Move non-zero elements to the front
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] != 0) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+        j++;
       }
     }
   }
