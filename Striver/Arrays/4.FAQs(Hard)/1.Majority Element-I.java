@@ -33,72 +33,32 @@ class Solution {
 }
 
 /*
-    APPROACH - HASHMAP (FREQUENCY COUNT)
-    1. Use a HashMap to count the frequency of each element in the array.
-    2. Iterate through the array, updating the frequency count for each element.
-    3. Traverse the HashMap to find the element with the highest frequency.
-    4. Return the element with the maximum count, which is the majority element.
+    APPROACH - HASHMAP OPTIMIZATION
+    1. Use a HashMap to store the frequency of each element while iterating through the array.
+    2. If the frequency of an element exceeds half of the array length, return that element immediately.
+    3. If no majority element is found (though in valid cases one always exists), return -1.
 
     TIME COMPLEXITY
-    - O(N), since we traverse the array once to build the HashMap and once to find the maximum frequency element.
+    - O(N), since we traverse the array once and perform O(1) operations for each element.
 
     SPACE COMPLEXITY
-    - O(N), since we store the frequency count for each unique element in the HashMap.
+    - O(N), since we store the frequency of each unique element in the HashMap.
 */
 
 class Solution {
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         
-        // Count occurrences of each element
+        // Count occurrences and check majority condition on the fly
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
-        }
-        
-        int majorityElement = nums[0];
-        int maxFrequency = 1;
-        
-        // Find element with maximum frequency
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            if (entry.getValue() > maxFrequency) {
-                maxFrequency = entry.getValue();
-                majorityElement = entry.getKey();
+            if (frequencyMap.get(num) > nums.length / 2) {
+                return num;
             }
         }
         
-        return majorityElement;
+        return -1;
     }
-}
-
-
-class Solution {
-  public int majorityElement(int[] nums) {
-    int ele = nums[0];
-    int c = 0;
-    for (int i = 0; i < nums.length; i++) {
-      if (c == 0) {
-        ele = nums[i];
-        c++;
-      } else if (ele == nums[i]) {
-        c++;
-      } else {
-        c--;
-      }
-    }
-
-    c = 0;
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] == ele) {
-        c++;
-      }
-
-      if (c > nums.length / 2) {
-        return ele;
-      }
-    }
-
-    return -1;
-  }
 }
 
 /*
