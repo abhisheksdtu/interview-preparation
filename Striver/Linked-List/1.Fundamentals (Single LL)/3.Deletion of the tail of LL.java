@@ -21,7 +21,17 @@ class ListNode {
 */
 
 class Solution {
-    public ListNode deleteHead(ListNode head) {
-        return (head == null) ? null : head.next;
+    public ListNode deleteTail(ListNode head) {
+         if (head == null || head.next == null) {
+            return null;
+        }
+
+        ListNode current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+
+        current.next = null;
+        return head;
     }
 }

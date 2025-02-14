@@ -21,7 +21,17 @@ class ListNode {
 */
 
 class Solution {
-    public ListNode deleteHead(ListNode head) {
-        return (head == null) ? null : head.next;
+    public ListNode insertAtTail(ListNode head, int x) {
+        if(head==null){
+            return new ListNode(x);
+        }
+        ListNode node = head;
+        while(node.next!=null){
+            node=node.next;
+        }
+        ListNode  temp = new ListNode(x);
+        node.next=temp;
+
+        return head;
     }
 }
