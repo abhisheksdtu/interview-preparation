@@ -1,33 +1,37 @@
 /*
     APPROACH - BRUTE FORCE
-    1. Iterate through the array and pick each element as a candidate majority element.
-    2. Count its occurrences by iterating through the array again.
-    3. If the count exceeds half of the array length, return the element.
-    4. If no majority element is found, return -1.
+    1. Iterate through the array and consider each element as a candidate.
+    2. Count occurrences of each candidate in a nested loop.
+    3. If the count exceeds ⌊N/2⌋, return the candidate.
+    4. Return -1 (though per problem constraints, this case won’t occur).
 
     TIME COMPLEXITY
     - O(N^2), due to the nested loop iterating through the array.
 
     SPACE COMPLEXITY
-    - O(1), since no extra space is used.
+    - O(1), as no extra space is used.
 */
 
 class Solution {
     public int majorityElement(int[] nums) {
-        for (int candidate : nums) {
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            int candidate = nums[i];
             int count = 0;
-            
-            for (int num : nums) {
-                if (num == candidate) {
+
+            // Count occurrences of candidate
+            for (int j = 0; j < n; j++) {
+                if (nums[j] == candidate) {
                     count++;
                 }
             }
-            
-            if (count > nums.length / 2) {
+
+            if (count > n / 2) {
                 return candidate;
             }
         }
-        
+
         return -1;
     }
 }
@@ -35,78 +39,62 @@ class Solution {
 /*
     APPROACH - HASHMAP OPTIMIZATION
     1. Use a HashMap to store the frequency of each element while iterating through the array.
-    2. If the frequency of an element exceeds half of the array length, return that element immediately.
-    3. If no majority element is found (though in valid cases one always exists), return -1.
+    2. If the frequency of an element exceeds ⌊N/2⌋, return it immediately.
 
     TIME COMPLEXITY
-    - O(N), since we traverse the array once and perform O(1) operations for each element.
+    - O(N), since we traverse the array once.
 
     SPACE COMPLEXITY
-    - O(N), since we store the frequency of each unique element in the HashMap.
+    - O(N), as we store the frequency of each unique element in the HashMap.
 */
+
+import java.util.*;
 
 class Solution {
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
-        
-        // Count occurrences and check majority condition on the fly
+        int threshold = nums.length / 2;
+
         for (int num : nums) {
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
-            if (frequencyMap.get(num) > nums.length / 2) {
+            int count = frequencyMap.getOrDefault(num, 0) + 1;
+            if (count > threshold) {
                 return num;
             }
+            frequencyMap.put(num, count);
         }
-        
+
         return -1;
     }
 }
 
 /*
     APPROACH - BOYER-MOORE VOTING ALGORITHM
-    1. Initialize a candidate element and a count variable.
+    1. Initialize a candidate and count variable.
     2. Traverse the array:
-       - If the count is zero, set the current element as the candidate.
-       - If the current element matches the candidate, increase the count.
+       - If count is zero, set the current number as the candidate.
+       - If the current number matches the candidate, increase the count.
        - Otherwise, decrease the count.
-    3. Validate the candidate by counting its occurrences in a second pass.
-    4. If the count exceeds half of the array length, return the candidate.
-    5. Otherwise, return -1 (though in valid cases, a majority element is guaranteed to exist).
+    3. The candidate at the end is the majority element.
 
     TIME COMPLEXITY
-    - O(N), since we traverse the array twice.
+    - O(N), since we traverse the array once.
 
     SPACE COMPLEXITY
-    - O(1), as we use only a few extra variables.
+    - O(1), as only a few extra variables are used.
 */
 
 class Solution {
     public int majorityElement(int[] nums) {
-        int candidate = nums[0];
-        int count = 0;
-        
-        // First pass: Find the candidate element
+        int candidate = nums[0], count = 0;
+
+        // Boyer-Moore Voting Algorithm to find majority candidate
         for (int num : nums) {
             if (count == 0) {
                 candidate = num;
             }
-            if(num == candidate) {
-                count++;
-            } else {
-                count--;
-            }
+            count += (num == candidate) ? 1 : -1;
         }
-        
-        // Second pass: Validate the candidate
-        count = 0;
-        for (int num : nums) {
-            if (num == candidate) {
-                count++;
-            }
-            if (count > nums.length / 2) {
-                return candidate;
-            }
-        }
-        
-        return -1;
+
+        return candidate;
     }
 }
