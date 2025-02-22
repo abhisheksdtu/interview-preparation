@@ -12,8 +12,8 @@
     - [4. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
     - [5. Search in rotated sorted array-II](#search-in-rotated-sorted-array-2)
     - [6. Find minimum in Rotated Sorted Array](#find-minimum-in-rotated-sorted-array)
-    - [7. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
-    - [8. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
+    - [7. Find Out How Many Times the Array is Rotated](#find-out-how-many-times-the-array-is-rotated)
+    - [8. Single Element in Sorted Array](#single-element-in-sorted-array)
     
 ---
 
@@ -25,6 +25,32 @@
 
 <a id="search-x-in-sorted-array"></a>
 ### 1. Search X in sorted array [[Back to Top](#top)]
+
+Given a sorted array of integers `nums` with 0-based indexing, find the index of a specified target integer. If the target is found in the array, return its index. If the target is not found, return `-1`.
+
+#### Examples
+
+```plaintext
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: The target integer 9 exists in nums and its index is 4
+```
+
+```plaintext
+Input: nums = [-1,0,3,5,9,12], target = 2
+Output: -1
+Explanation: The target integer 2 does not exist in nums so return -1
+```
+
+```plaintext
+Input: nums = [-1,0,3,5,9,12], target = -1
+Output: 0
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^5  
+  - -10^5 < nums[i], target < 10^5  
+  - nums is sorted in ascending order.
 
 #### 1.1 APPROACH - ITERATIVE BINARY SEARCH
 ```java
@@ -101,6 +127,34 @@ class Solution {
 <a id="lower-bound"></a>
 ### 2. Lower Bound [[Back to Top](#top)]
 
+Given a sorted array of `nums` and an integer `x`, write a program to find the lower bound of `x`. The lower bound algorithm finds the first or the smallest index in a sorted array where the value at that index is greater than or equal to a given key i.e. `x`.
+
+If no such index is found, return the size of the array.
+
+#### Examples
+
+```plaintext
+Input : nums= [1,2,2,3], x = 2
+Output: 1
+Explanation: Index 1 is the smallest index such that arr[1] >= x.
+```
+
+```plaintext
+Input : nums= [3,5,8,15,19], x = 9
+Output: 3
+Explanation: Index 3 is the smallest index such that arr[3] >= x.
+```
+
+```plaintext
+Input : nums= [3,5,8,15,19], x = 3
+Output: 0
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^5  
+  - -10^5 < nums[i], x < 10^5  
+  - nums is sorted in ascending order.
+
 #### 2.1 APPROACH - LOWER BOUND USING BINARY SEARCH
 ```java
 /*
@@ -144,6 +198,35 @@ class Solution {
 
 <a id="upper-bound"></a>
 ### 3. Upper Bound [[Back to Top](#top)]
+
+Given a sorted array of `nums` and an integer `x`, write a program to find the upper bound of `x`. The upper bound algorithm finds the first or the smallest index in a sorted array where the value at that index is greater than a given key i.e. `x`.
+
+If no such index is found, return the size of the array.
+
+#### Examples
+
+```plaintext
+Input : n= 4, nums = [1,2,2,3], x = 2
+Output: 3
+Explanation: Index 3 is the smallest index such that arr[3] > x.
+```
+
+```plaintext
+Input : n = 5, nums = [3,5,8,15,19], x = 9
+Output: 3
+Explanation: Index 3 is the smallest index such that arr[3] > x.
+```
+
+```plaintext
+Input : n = 5, nums = [3,5,8,15,19], x = 3
+Output: 1
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^5  
+  - -10^5 < nums[i], x < 10^5  
+  - nums is sorted in ascending order.
+
 
 #### 3.1 APPROACH - UPPER BOUND USING BINARY SEARCH
 ```java
@@ -196,11 +279,41 @@ class Solution {
 - [4. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
 - [5. Search in rotated sorted array-II](#search-in-rotated-sorted-array-2)
 - [6. Find minimum in Rotated Sorted Array](#find-minimum-in-rotated-sorted-array)
-- [7. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
-- [8. Search in rotated sorted array-I](#search-in-rotated-sorted-array-1)
+- [7. Find Out How Many Times the Array is Rotated](#find-out-how-many-times-the-array-is-rotated)
+- [8. Single Element in Sorted Array](#single-element-in-sorted-array)
 
 
 ### 1. Search Insert Position [[Back to Top](#top)]
+
+Given a sorted array of `nums` consisting of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+#### Examples
+
+```plaintext
+Input: nums = [1, 3, 5, 6], target = 5
+Output: 2
+Explanation: The target value 5 is found at index 2 in the sorted array. Hence, the function returns 2.
+```
+
+```plaintext
+Input: nums = [1, 3, 5, 6], target = 2
+Output: 1
+Explanation: The target value 2 is not found in the array. However, it should be inserted at index 1 to maintain the sorted order of the array.
+```
+
+```plaintext
+Input: nums = [1, 3, 5, 6], target = 7
+Output: 4
+```
+
+---
+
+
+#### Constraints:
+  - 1 <= nums.length <= 10^5  
+  - -10^5 <= nums[i] <= 10^5  
+  - nums contains distinct values sorted in ascending order.  
+  - -10^5 <= target <= 10^5  
 
 #### 1.1 APPROACH - ITERATIVE BINARY SEARCH
 ```java
@@ -245,6 +358,35 @@ class Solution {
 
 <a id="floor-and-ceil"></a>
 ### 2. Floor and Ceil in Sorted Array [[Back to Top](#top)]
+
+Given a sorted array `nums` and an integer `x`. Find the floor and ceil of `x` in `nums`. The floor of `x` is the largest element in the array which is smaller than or equal to `x`. The ceiling of `x` is the smallest element in the array greater than or equal to `x`. If no floor or ceil exists, output `-1`.
+
+#### Examples
+
+```plaintext
+Input : nums =[3, 4, 4, 7, 8, 10], x= 5
+Output: 4 7
+Explanation: The floor of 5 in the array is 4, and the ceiling of 5 in the array is 7.
+```
+
+```plaintext
+Input : nums =[3, 4, 4, 7, 8, 10], x= 8
+Output: 8 8
+Explanation: The floor of 8 in the array is 8, and the ceiling of 8 in the array is also 8.
+```
+
+```plaintext
+Input : nums =[3, 4, 4, 7, 8, 10], x= 12
+Output: 10 -1
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^5  
+  - 0 < nums[i], x < 10^5  
+  - nums is sorted in ascending order.  
+
+---
+
 
 #### 2.1 APPROACH - BINARY SEARCH FOR FLOOR AND CEIL
 ```java
@@ -311,6 +453,34 @@ class Solution {
 
 <a id="first-and-last-occurrence"></a>
 ### 3. First and Last Occurrence [[Back to Top](#top)]
+
+Given an array of integers `nums` sorted in non-decreasing order, find the starting and ending position of a given `target` value. If the `target` is not found in the array, return `[-1, -1]`.
+
+#### Examples
+
+```plaintext
+Input: nums = [5, 7, 7, 8, 8, 10], target = 8
+Output: [3, 4]
+Explanation:The target is 8, and it appears in the array at indices 3 and 4, so the output is [3,4].
+```
+
+```plaintext
+Input: nums = [5, 7, 7, 8, 8, 10], target = 6
+Output: [-1, -1]
+Explanation: The target is 6, which is not present in the array. Therefore, the output is [-1, -1].
+```
+
+```plaintext
+Input: nums = [5, 7, 7, 8, 8, 10], target = 5
+Output: [0, 0]
+```
+
+#### Constraints:
+  - 0 <= nums.length <= 10^5  
+  - -10^9 <= nums[i] <= 10^9  
+  - nums is a non-decreasing array.  
+  - -10^9 <= target <= 10^9  
+
 
 #### 3.1 APPROACH - LINEAR SEARCH
 ```java
@@ -471,6 +641,37 @@ class Solution {
 <a id="search-in-rotated-sorted-array-1"></a>
 ### 4. Search in rotated sorted array-I [[Back to Top](#top)]
 
+Given an integer array `nums`, sorted in ascending order (with distinct values) and a target value `k`. The array is rotated at some pivot point that is unknown. Find the index at which `k` is present and if `k` is not present return `-1`.
+
+#### Examples
+
+```plaintext
+Input : nums = [4, 5, 6, 7, 0, 1, 2], k = 0
+Output: 4
+Explanation: Here, the target is 0. We can see that 0 is present in the given rotated sorted array, nums. Thus, we get output as 4, which is the index at which 0 is present in the array.
+```
+
+```plaintext
+Input: nums = [4, 5, 6, 7, 0, 1, 2], k = 3
+Output: -1
+Explanation: Here, the target is 3. Since 3 is not present in the given rotated sorted array. Thus, we get the output as -1.
+```
+
+```plaintext
+Input: nums = [4, 5, 6, 7, 0, 1, 2], k = 5
+Output: 1
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^4  
+  - -10^4 <= nums[i] <= 10^4  
+  - All values of nums are unique.  
+  - nums is an ascending array that is possibly rotated.  
+  - -10^4 <= k <= 10^4  
+
+---
+
+
 #### 4.1 APPROACH - LINEAR SEARCH
 
 ```java
@@ -552,6 +753,35 @@ class Solution {
 
 <a id="search-in-rotated-sorted-array-2"></a>
 ### 5. Search in rotated sorted array-II [[Back to Top](#top)]
+
+Given an integer array `nums`, sorted in ascending order (may contain duplicate values) and a target value `k`. Now the array is rotated at some pivot point unknown to you. Return `True` if `k` is present and otherwise, return `False`.
+
+#### Examples
+
+```plaintext
+Input : nums = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 3
+Output: True
+Explanation: The element 3 is present in the array. So, the answer is True.
+```
+
+```plaintext
+Input : nums = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 10
+Output: False
+Explanation:The element 10 is not present in the array. So, the answer is False.
+```
+
+```plaintext
+Input : nums = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 7
+Output: True
+```
+
+#### Constraints:
+  - 1 <= nums.length <= 10^4  
+  - -10^4 <= nums[i] <= 10^4  
+  - nums is guaranteed to be rotated at some pivot.  
+  - -10^4 <= k <= 10^4  
+
+---
 
 #### 5.1 APPROACH - LINEAR SEARCH
 
@@ -642,6 +872,37 @@ class Solution {
 <a id="find-minimum-in-rotated-sorted-array"></a>
 ### 6. Find minimum in Rotated Sorted Array [[Back to Top](#top)]
 
+Given an integer array `nums` of size `N`, sorted in ascending order with distinct values, and then rotated an unknown number of times (between `1` and `N`), find the minimum element in the array.
+
+#### Examples
+
+```plaintext
+Input : nums = [4, 5, 6, 7, 0, 1, 2, 3]
+Output: 0
+Explanation: Here, the element 0 is the minimum element in the array.
+```
+
+```plaintext
+Input : nums = [3, 4, 5, 1, 2]
+Output: 1
+Explanation: Here, the element 1 is the minimum element in the array.
+```
+
+```plaintext
+Input : nums = [4, 5, 6, 7, -7, 1, 2, 3]
+Output: -7
+```
+
+#### Constraints:
+  - `n == nums.length`
+  - `1 <= n <= 10^4`
+  - `-10^4 <= nums[i] <= 10^4`
+  - All the integers of `nums` are unique.
+  - `nums` is sorted and rotated between `1` and `n` times.
+
+---
+
+
 #### 6.1 APPROACH - LINEAR SEARCH
 
 ```java
@@ -716,3 +977,64 @@ class Solution {
     }
 }
 ```
+
+<a id="find-out-how-many-times-the-array-is-rotated"></a>
+### 7. Find Out How Many Times the Array is Rotated [[Back to Top](#top)]
+
+Given an integer array `nums` of size `n`, sorted in ascending order with distinct values. The array has been right rotated an unknown number of times, between `1` and `n`. Determine the number of rotations performed on the array.
+
+#### Examples
+
+```plaintext
+Input : nums = [4, 5, 6, 7, 0, 1, 2, 3]
+Output: 4
+Explanation: The original array should be [0, 1, 2, 3, 4, 5, 6, 7]. So, we can notice that the array has been rotated 4 times.
+```
+
+```plaintext
+Input: nums = [3, 4, 5, 1, 2]
+Output: 3
+Explanation: The original array should be [1, 2, 3, 4, 5]. So, we can notice that the array has been rotated 3 times.
+```
+
+```plaintext
+Input: nums = [4, 5, 1, 2]
+Output: 2
+```
+
+#### Constraints:
+  - `n == nums.length`
+  - `1 <= n <= 10^4`
+  - `-10^4 <= nums[i] <= 10^4`
+  - All the integers of `nums` are unique.
+
+---
+
+<a id="single-element-in-sorted-array"></a>
+### 8. Single Element in Sorted Array [[Back to Top](#top)]
+
+Given an array `nums` sorted in non-decreasing order. Every number in the array except one appears twice. Find the single number in the array.
+
+#### Examples
+
+```plaintext
+Input : nums = [1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6]
+Output: 4
+Explanation: Only the number 4 appears once in the array.
+```
+
+```plaintext
+Input : nums = [1, 1, 3, 5, 5]
+Output: 3
+Explanation: Only the number 3 appears once in the array.
+```
+
+```plaintext
+Input : nums = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7]
+Output: 7
+```
+
+#### Constraints:
+  - `n == nums.length`
+  - `1 <= n <= 10^4`
+  - `-10^4 <= nums[i] <= 10^4`
