@@ -1038,3 +1038,103 @@ Output: 7
   - `n == nums.length`
   - `1 <= n <= 10^4`
   - `-10^4 <= nums[i] <= 10^4`
+
+<a id="find-square-root-of-a-number"></a>
+### Find Square Root of a Number [[Back to Top](#top)]
+
+Given a positive integer `n`. Find and return its square root. If `n` is not a perfect square, then return the floor value of `sqrt(n)`.
+
+#### Examples
+
+```plaintext
+Input: n = 36
+Output: 6
+Explanation: 6 is the square root of 36.
+```
+
+```plaintext
+Input: n = 28
+Output: 5
+Explanation: The square root of 28 is approximately 5.292. So, the floor value will be 5.
+```
+
+```plaintext
+Input: n=50
+Output: 7
+```
+
+#### Constraints:
+  - `0 <= n <= 2^{31} - 1`
+
+
+<a id="find-the-smallest-divisor"></a>
+### Find the Smallest Divisor [[Back to Top](#top)]
+
+Given an array of integers `nums` and an integer `limit` as the threshold value, find the smallest positive integer divisor such that upon dividing all the elements of the array by this divisor, the sum of the division results is less than or equal to the threshold value.
+
+Each result of the division is rounded up to the nearest integer greater than or equal to that element.
+
+#### Examples
+
+```plaintext
+Input: nums = [1, 2, 3, 4, 5], limit = 8
+Output: 3
+Explanation: We can get a sum of 15 (1 + 2 + 3 + 4 + 5) if we choose 1 as a divisor. 
+The sum is 9 (1 + 1 + 2 + 2 + 3) if we choose 2 as a divisor. 
+Upon dividing all the elements of the array by 3, we get 1,1,1,2,2 respectively. 
+Now, their sum is equal to 7 <= 8 i.e. the threshold value. 
+So, 3 is the minimum possible answer.
+```
+
+```plaintext
+Input: nums = [8,4,2,3], limit = 10
+Output: 2
+Explanation: If we choose 1, we get 17 as the sum. 
+If we choose 2, we get 9 (4+2+1+2) <= 10 as the answer. 
+So, 2 is the answer.
+```
+
+```plaintext
+Input: nums = [8,4,2,3], limit = 4
+Output: 8
+```
+
+#### Constraints:
+  - `1 <= nums.length <= 5 * 10^4`
+  - `1 <= nums[i] <= 10^6`
+  - `nums.length <= limit <= 10^6`
+
+<a id="koko-eating-bananas"></a>
+### Koko Eating Bananas [[Back to Top](#top)]
+
+A monkey is given `n` piles of bananas, where the `i-th` pile has `nums[i]` bananas. An integer `h` represents the total time in hours to eat all the bananas.
+
+Each hour, the monkey chooses a non-empty pile of bananas and eats `k` bananas. If the pile contains fewer than `k` bananas, the monkey eats all the bananas in that pile and does not consume any more bananas in that hour.
+
+Determine the minimum number of bananas the monkey must eat per hour to finish all the bananas within `h` hours.
+
+#### Examples
+
+```plaintext
+Input: n = 4, nums = [7, 15, 6, 3], h = 8
+Output: 5
+Explanation: If Koko eats 5 bananas/hr, he will take 2, 3, 2, and 1 hour to eat the piles accordingly. 
+So, he will take 8 hours to complete all the piles.
+```
+
+```plaintext
+Input: n = 5, nums = [25, 12, 8, 14, 19], h = 5
+Output: 25
+Explanation: If Koko eats 25 bananas/hr, he will take 1, 1, 1, 1, and 1 hour to eat the piles accordingly. 
+So, he will take 5 hours to complete all the piles.
+```
+
+```plaintext
+Input: n = 4, nums = [3, 7, 6, 11], h = 8
+Output: 4
+```
+
+#### Constraints:
+  - `1 <= n <= 10^4`
+  - `n <= h <= 10^9`
+  - `1 <= nums[i] <= 10^9`
