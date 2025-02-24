@@ -23,11 +23,13 @@ class Solution {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-
+            // MAYBE AN ANSWER
             if (nums[mid] >= target) {
                 resultIndex = mid;
+                // LOOK FOR MORE SMALL IDX ON LEFT
                 high = mid - 1;
             } else {
+                // LOOK FOR TARGET ON RIGHT
                 low = mid + 1;
             }
         }
