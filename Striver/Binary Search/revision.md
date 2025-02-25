@@ -14,7 +14,27 @@
     - [6. Find minimum in Rotated Sorted Array](#find-minimum-in-rotated-sorted-array)
     - [7. Find Out How Many Times the Array is Rotated](#find-out-how-many-times-the-array-is-rotated)
     - [8. Single Element in Sorted Array](#single-element-in-sorted-array)
-    
+- [3. On Answers](#on-answers)
+    - [1. Find square root of a number](#find-square-root-of-a-number)
+    - [2. Find Nth root of a number](#find-nth-root-of-a-number)
+    - [3. Find the smallest divisor](#find-the-smallest-divisor)
+    - [4. Koko eating bananas](#koko-eating-bananas)
+    - [5. Minimum days to make M bouquets](#minimum-days-to-make-m-bouquets)
+- [4. FAQs](#faqs)
+    - [1. Aggressive Cows](#aggressive-cows)
+    - [2. Book Allocation Problem](#book-allocation-problem)
+    - [3. Find peak element](#find-peak-element)
+    - [4. Median of 2 sorted arrays](#median-of-2-sorted-arrays)
+    - [5. Minimise max distance to gas stations](#minimise-max-distance-to-gas-stations)
+    - [6. Kth element of 2 sorted arrays](#kth-element-of-2-sorted-arrays)
+    - [7. Split array - largest sum](#split-array-largest-sum)
+- [5. 2D Arrays](#2d-arrays)
+    - [1. Find row with maximum 1's](#find-row-with-maximum-1s)
+    - [2. Search in a 2D matrix](#search-in-a-2d-matrix)
+    - [3. Search in 2D matrix - II](#search-in-2d-matrix-ii)
+    - [4. Find Peak Element](#find-peak-element-2)
+    - [5. Matrix Median](#matrix-median)
+
 ---
 
 <a id="fundamentals"></a>
@@ -269,7 +289,6 @@ class Solution {
 }
 ```
 
-<a id="search-insert-position"></a>
 
 <a id="logic-building"></a>
 ## 2. Logic Building [[Back to Top](#top)]
@@ -1038,9 +1057,21 @@ Output: 7
   - `n == nums.length`
   - `1 <= n <= 10^4`
   - `-10^4 <= nums[i] <= 10^4`
+  
+---
+
+<a id="on-answers"></a>
+## 3. On Answers [[Back to Top](#top)]
+- [1. Find square root of a number](#find-square-root-of-a-number)
+- [2. Find Nth root of a number](#find-nth-root-of-a-number)
+- [3. Find the smallest divisor](#find-the-smallest-divisor)
+- [4. Koko eating bananas](#koko-eating-bananas)
+- [5. Minimum days to make M bouquets](#minimum-days-to-make-m-bouquets)
+
+---
 
 <a id="find-square-root-of-a-number"></a>
-### Find Square Root of a Number [[Back to Top](#top)]
+### 1. Find Square Root of a Number [[Back to Top](#top)] [[Back to Section](#on-answers)]
 
 Given a positive integer `n`. Find and return its square root. If `n` is not a perfect square, then return the floor value of `sqrt(n)`.
 
@@ -1055,7 +1086,8 @@ Explanation: 6 is the square root of 36.
 ```plaintext
 Input: n = 28
 Output: 5
-Explanation: The square root of 28 is approximately 5.292. So, the floor value will be 5.
+Explanation: The square root of 28 is approximately 5.292. 
+So, the floor value will be 5.
 ```
 
 ```plaintext
@@ -1066,9 +1098,41 @@ Output: 7
 #### Constraints:
   - `0 <= n <= 2^{31} - 1`
 
+---
+
+<a id="find-nth-root-of-a-number"></a>
+### 2. Find Nth Root of a Number [[Back to Top](#top)] [[Back to Section](#on-answers)]
+
+Given two numbers `N` and `M`, find the Nth root of `M`. The Nth root of a number `M` is defined as a number `X` such that when `X` is raised to the power of `N`, it equals `M`. If the Nth root is not an integer, return `-1`.
+
+#### Examples
+
+```plaintext
+Input: N = 3, M = 27
+Output: 3
+Explanation: The cube root of 27 is equal to 3.
+```
+
+```plaintext
+Input: N = 4, M = 69
+Output: -1
+Explanation: The 4th root of 69 does not exist. 
+So, the answer is -1.
+```
+
+```plaintext
+Input: N = 4, M = 81
+Output: 3
+```
+
+#### Constraints:
+  - `1 <= N <= 30`
+  - `1 <= M <= 10^9`
+
+---
 
 <a id="find-the-smallest-divisor"></a>
-### Find the Smallest Divisor [[Back to Top](#top)]
+### 3. Find the Smallest Divisor [[Back to Top](#top)] [[Back to Section](#on-answers)]
 
 Given an array of integers `nums` and an integer `limit` as the threshold value, find the smallest positive integer divisor such that upon dividing all the elements of the array by this divisor, the sum of the division results is less than or equal to the threshold value.
 
@@ -1104,8 +1168,10 @@ Output: 8
   - `1 <= nums[i] <= 10^6`
   - `nums.length <= limit <= 10^6`
 
+---
+
 <a id="koko-eating-bananas"></a>
-### Koko Eating Bananas [[Back to Top](#top)]
+### 4. Koko Eating Bananas [[Back to Top](#top)] [[Back to Section](#on-answers)]
 
 A monkey is given `n` piles of bananas, where the `i-th` pile has `nums[i]` bananas. An integer `h` represents the total time in hours to eat all the bananas.
 
@@ -1138,3 +1204,59 @@ Output: 4
   - `1 <= n <= 10^4`
   - `n <= h <= 10^9`
   - `1 <= nums[i] <= 10^9`
+
+---
+
+<a id="minimum-days-to-make-m-bouquets"></a>
+### 5. Minimum Days to Make M Bouquets [[Back to Top](#top)] [[Back to Section](#on-answers)]
+
+Given `n` roses and an array `nums` where `nums[i]` denotes that the `i`th rose will bloom on the `nums[i]`th day, only adjacent bloomed roses can be picked to make a bouquet. Exactly `k` adjacent bloomed roses are required to make a single bouquet. Find the minimum number of days required to make at least `m` bouquets, each containing `k` roses. Return `-1` if it is not possible.
+
+#### Examples
+
+```plaintext
+Input: n = 8, nums = [7, 7, 7, 7, 13, 11, 12, 7], m = 2, k = 3
+Output: 12
+Explanation: On the 12th the first 4 flowers and the last 3 flowers would have already bloomed. So, we can easily make 2 bouquets, one with the first 3 and another with the last 3 flowers.
+```
+
+```plaintext
+Input: n = 5, nums = [1, 10, 3, 10, 2], m = 3, k = 2
+Output: -1
+Explanation: If we want to make 3 bouquets of 2 flowers each, we need at least 6 flowers. But we are given only 5 flowers, so, we cannot make the bouquets.
+```
+
+```plaintext
+Input: n = 5, nums = [1, 10, 3, 10, 2], m = 3, k = 1
+Output: 3
+```
+
+#### Constraints:
+  - `1 <= n <= 10^5`
+  - `1 <= nums[i] <= 10^9`
+  - `1 <= m <= 10^6`
+  - `1 <= k <= n`
+
+
+<a id="faqs"></a>
+## 4. FAQs [[Back to Top](#top)]
+- [1. Aggressive Cows](#aggressive-cows)
+- [2. Book Allocation Problem](#book-allocation-problem)
+- [3. Find peak element](#find-peak-element)
+- [4. Median of 2 sorted arrays](#median-of-2-sorted-arrays)
+- [5. Minimise max distance to gas stations](#minimise-max-distance-to-gas-stations)
+- [6. Kth element of 2 sorted arrays](#kth-element-of-2-sorted-arrays)
+- [7. Split array - largest sum](#split-array-largest-sum)
+
+---
+
+<a id="2d-arrays"></a>
+## 5. 2D Arrays [[Back to Top](#top)]
+- [1. Find row with maximum 1's](#find-row-with-maximum-1s)
+- [2. Search in a 2D matrix](#search-in-a-2d-matrix)
+- [3. Search in 2D matrix - II](#search-in-2d-matrix-ii)
+- [4. Find Peak Element](#find-peak-element-2)
+- [5. Matrix Median](#matrix-median)
+
+---
+
