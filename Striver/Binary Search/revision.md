@@ -1260,3 +1260,5 @@ Output: 3
 
 ---
 
+// subs.removeLast();
+System.out.println(Arrays.deepToString(subs.toArray()));
