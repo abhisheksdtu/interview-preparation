@@ -161,8 +161,7 @@ class Solution {
         subsequence(arr, k, new ArrayList<>(), 0, 0);
     }
 
-    public void subsequence(
-        int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
+    public void subsequence(int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
         if (idx == arr.length) {
             if (sum == k) {
                 System.out.println(Arrays.deepToString(subs.toArray()));
@@ -187,8 +186,7 @@ class Solution {
         return subsequence(arr, k, new ArrayList<>(), 0, 0);
     }
 
-    public boolean subsequence(
-        int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
+    public boolean subsequence(int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
         if (idx == arr.length) {
             if (sum == k) {
                 System.out.println(Arrays.deepToString(subs.toArray()));
@@ -215,8 +213,7 @@ class Solution {
         return subsequence(arr, k, new ArrayList<>(), 0, 0);
     }
 
-    public int subsequence(
-        int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
+    public int subsequence(int arr[], int k, ArrayList<Integer> subs, int idx, int sum) {
         if (idx == arr.length) {
             if (sum == k) {
                 // System.out.println(Arrays.deepToString(subs.toArray()));
@@ -247,8 +244,7 @@ class Solution {
         combinationSum(arr, k, new ArrayList<>(), 0, 0);
     }
 
-    public void combinationSum(
-        int arr[], int k, ArrayList<Integer> com, int idx, int sum) {
+    public void combinationSum(int arr[], int k, ArrayList<Integer> com, int idx, int sum) {
         if (sum > k) {
             return;
         }
@@ -276,8 +272,7 @@ class Solution {
         return res;
     }
 
-    public void combinationSum(int arr[], int k, List<List<Integer>> res,
-        List<Integer> com, int idx, int sum) {
+    public void combinationSum(int arr[], int k, List<List<Integer>> res, List<Integer> com, int idx, int sum) {
         if (sum > k) {
             return;
         }
@@ -304,8 +299,7 @@ class Solution {
         return res;
     }
 
-    public void combinationSum(
-        int arr[], int k, List<List<Integer>> res, List<Integer> com, int idx) {
+    public void combinationSum(int arr[], int k, List<List<Integer>> res, List<Integer> com, int idx) {
         if (idx == arr.length) {
             if (sum == k) {
                 res.add(new ArrayList<>(com));
