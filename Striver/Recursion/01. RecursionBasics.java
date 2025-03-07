@@ -301,7 +301,7 @@ class Solution {
 
     public void combinationSum(int arr[], int k, List<List<Integer>> res, List<Integer> com, int idx) {
         if (idx == arr.length) {
-            if (sum == k) {
+            if (k == 0) {
                 res.add(new ArrayList<>(com));
             }
             return;
