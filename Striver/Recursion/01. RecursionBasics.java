@@ -221,3 +221,83 @@ class Solution {
         return l+r;
     }
 }
+
+// COMBINATION SUM
+
+// PRINT
+
+class Solution {
+    public void combinationSum(int arr[],int k) {
+        combinationSum(arr,k,new ArrayList<>(),0,0);
+    }
+
+    public void combinationSum(int arr[], int k, ArrayList<Integer> com,int idx,int sum) {
+        if(sum>k){
+            return;
+        }
+        if(idx==arr.length){
+            if(sum==k){
+                System.out.println(Arrays.deepToString(com.toArray()));
+            }
+            return;
+        }        
+        
+        com.add(arr[idx]);
+        sum+=arr[idx];
+        combinationSum(arr,k,com,idx,sum);
+        com.removeLast();
+        sum-=arr[idx];
+        combinationSum(arr,k,com,idx+1,sum);
+    }
+}
+
+// RETURN
+class Solution {
+    public List<List<Integer>> combinationSum(int arr[],int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        combinationSum(arr,k,res,new ArrayList<>(),0,0);
+        return res;
+    }
+
+    public void combinationSum(int arr[], int k, List<List<Integer>> res, List<Integer> com,int idx,int sum) {
+        if(sum>k){
+            return;
+        }
+        if(idx==arr.length){
+            if(sum==k){
+                res.add(new ArrayList<>(com));
+            }
+            return;
+        }        
+        
+        com.add(arr[idx]);
+        sum+=arr[idx];
+        combinationSum(arr,k,res,com,idx,sum);
+        com.removeLast();
+        sum-=arr[idx];
+        combinationSum(arr,k,res,com,idx+1,sum);
+    }
+}
+
+class Solution {
+    public List<List<Integer>> combinationSum(int arr[],int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        combinationSum(arr,k,res,new ArrayList<>(),0);
+        return res;
+    }
+
+    public void combinationSum(int arr[], int k, List<List<Integer>> res, List<Integer> com,int idx) {
+        if(idx==arr.length){
+            if(sum==k){
+                res.add(new ArrayList<>(com));
+            }
+            return;
+        }        
+        if(arr[idx]<=k){
+            com.add(arr[idx]);
+            combinationSum(arr,k-arr[idx],res,com,idx);
+            com.removeLast();
+        }
+        combinationSum(arr,k,res,com,idx+1);
+    }
+}

@@ -1,1 +1,2 @@
-Arrays.deepToString(subs.toArray())
+Arrays.deepToString(list.toArray())
+// subs.removeLast();
