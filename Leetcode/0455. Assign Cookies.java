@@ -1,18 +1,13 @@
 /*
     APPROACH
-    1. Sort both arrays so that we can assign the smallest suitable cookie to
-       each child.
-    2. Use two pointers `i` for children and `j` for cookies.
-    3. If the current cookie satisfies the current child's greed factor,
-       increment `i` to move to the next child.
-    4. Always increment `j` to check the next cookie.
+    - Sort both arrays: children's greed (g) and cookie sizes (s).
+    - Try to satisfy each child with the smallest cookie that works:
+        - If the current cookie can satisfy the current child, move to the next child.
+        - Always move to the next cookie.
+    - The answer is how many children were satisfied.
 
-    TIME COMPLEXITY
-    - O(m log m + n log n) for sorting, where `m` is the number of children and
-      `n` is the number of cookies.
-
-    SPACE COMPLEXITY
-    - O(1) (ignoring the recursion stack used by the sorting algorithm).
+    TIME: O(M log M + N log N)   // Sorting both arrays (M = g.length, N = s.length)
+    SPACE: O(1)                  // No extra space (sorting is in-place)
 */
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
