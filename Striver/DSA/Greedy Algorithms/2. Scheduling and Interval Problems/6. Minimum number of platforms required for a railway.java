@@ -29,26 +29,24 @@ class Solution {
 
 // OPTIMAL
 class Solution {
-    // Function to find the minimum number of platforms required at the
-    // railway station such that no train waits.
-    static int findPlatform(int arr[], int dep[]) {
-        Arrays.sort(arr);
-        Arrays.sort(dep);
-        int n = arr.length;
-        int res=1;
-        int c=1;
-        int i=1,j=0;
-        while(i<n && j<n){
-            if(dep[j]>=arr[i]){
-                c++;
-                i++;
-            }else{
-                c--;
-                j++;
-            }
-            res=Math.max(res,c);
-        }
-        
-        return res;
+  public int findPlatform(int[] arrival, int[] departure) {
+    Arrays.sort(arrival);
+    Arrays.sort(departure);
+    int n = arrival.length;
+    int res = 1;
+    int c = 1;
+    int i = 1, j = 0;
+    while (i < n && j < n) {
+      if (departure[j] >= arrival[i]) {
+        c++;
+        i++;
+      } else {
+        c--;
+        j++;
+      }
+      res = Math.max(res, c);
     }
+
+    return res;
+  }
 }
