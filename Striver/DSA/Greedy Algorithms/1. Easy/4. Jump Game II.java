@@ -1,5 +1,5 @@
 /*
-    GREEDY APPROACH
+    APPROACH
     - Track the farthest position you can reach at each step (farthest).
     - When you reach the end of the current jump (endOfJump), increment jumpCount and set the new endOfJump to farthest.
     - Continue until you can reach or pass the last index.
