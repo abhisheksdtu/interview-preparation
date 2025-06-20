@@ -1,52 +1,44 @@
-// BRUTE
+/*
+    TWO POINTERS WITH SORTING
+    - Sort arrival and departure times separately.
+    - Use two pointers:
+        - If the next train arrives before the earliest departure, need a new platform.
+        - Else, a train departs, free up a platform.
+    - Track the maximum platforms needed at any time.
 
+    TIME: O(N log N) for sorting arrival + O(N log N) for sorting departure + O(N) for processing = O(N log N)
+      - Sorting both arrays is the dominant step.
+      - Linear scan through both arrays with two pointers.
+
+    SPACE: O(1)
+      - No extra space used except for variables and in-place sorting.
+      - No extra data structures.
+
+    Why?
+    - Sorting is the slowest step, and dominates the complexity.
+    - Only a few pointers and counters used.
+
+    Note:
+    - Efficient for large inputs as both arrays are sorted only once.
+*/
 class Solution {
-    // Function to find the minimum number of platforms required at the
-    // railway station such that no train waits.
-    static int findPlatform(int arr[], int dep[]) {
-        
-        int count=0;
-
-        for(int i=0;i<arr.length;i++){
-            int c=0;
-            for(int j=i+1;j<arr.length;j++){
-                if(checkColiision(arr, dep, i, j)){
-                    c++;
-                }
+    public int findPlatform(int[] arrival, int[] departure) {
+        Arrays.sort(arrival);
+        Arrays.sort(departure);
+        int n = arrival.length;
+        int maxPlatforms = 1;
+        int currentPlatforms = 1;
+        int i = 1, j = 0;
+        while(i < n && j < n){
+            if(departure[j] >= arrival[i]){
+                currentPlatforms++;
+                i++;
+            }else{
+                currentPlatforms--;
+                j++;
             }
-            count=Math.max(count,c);
+            maxPlatforms = Math.max(maxPlatforms, currentPlatforms);
         }
-
-        return count;
+        return maxPlatforms;
     }
-    static boolean checkColiision(int arr[], int dep[], int i, int j) {
-        return arr[j]>=arr[i] && dep[j]>=dep[i] ||
-        arr[i]>=arr[j] && dep[i]>=dep[j] ||
-        arr[j]>=arr[i] && dep[i]>=dep[j] ||
-        arr[i]>=arr[j] && dep[j]>=dep[i];
-    }
-}
-
-// OPTIMAL
-class Solution {
-  public int findPlatform(int[] arrival, int[] departure) {
-    Arrays.sort(arrival);
-    Arrays.sort(departure);
-    int n = arrival.length;
-    int res = 1;
-    int c = 1;
-    int i = 1, j = 0;
-    while (i < n && j < n) {
-      if (departure[j] >= arrival[i]) {
-        c++;
-        i++;
-      } else {
-        c--;
-        j++;
-      }
-      res = Math.max(res, c);
-    }
-
-    return res;
-  }
 }
