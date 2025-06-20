@@ -21,8 +21,6 @@ class Solution {
     }
 }
 
-
-
 class Solution {
     public boolean checkValidString(String s) {
         int min = 0;
