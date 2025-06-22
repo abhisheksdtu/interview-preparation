@@ -169,15 +169,22 @@ class Solution {
 
 ### 1.3 Jump Game I [[Back to Easy](#easy)]
 **Problem Statement**  
-Determine if you can reach the last index given max jump lengths at each position.  
+You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+
+Return true if you can reach the last index, or false otherwise.
+
 _Link:_ [LeetCode 55](https://leetcode.com/problems/jump-game/)
 
 **Examples**  
 ```
-Input: nums = [2,3,1,1,4]  Output: true
+Input: nums = [2,3,1,1,4]
+Output: true
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 ```  
 ```
-Input: nums = [3,2,1,0,4]  Output: false
+Input: nums = [3,2,1,0,4]
+Output: false
+Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
 ```
 
 **Constraints**  
@@ -215,15 +222,25 @@ class Solution {
 
 ### 1.4 Jump Game II [[Back to Easy](#easy)]
 **Problem Statement**  
-Return minimum jumps to reach last index given max jump lengths.  
+You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
+
+Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where:
+
+- 0 <= j <= nums[i] and
+- i + j < n
+Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
+
 _Link:_ [LeetCode 45](https://leetcode.com/problems/jump-game-ii/)
 
 **Examples**  
 ```
-Input: nums = [2,3,1,1,4]  Output: 2
+Input: nums = [2,3,1,1,4]
+Output: 2
+Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
 ```  
 ```
-Input: nums = [2,3,0,1,4]  Output: 2
+Input: nums = [2,3,0,1,4]
+Output: 2
 ```
 
 **Constraints**  
@@ -271,13 +288,41 @@ class Solution {
 
 ### 2.1 Shortest Job First [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Calculate average waiting time using shortest-job-first scheduling.  
-_Link:_ [GFG SJF Scheduling](https://www.geeksforgeeks.org/shortest-job-first-or-sjf-cpu-scheduling/)
+Geek is a software engineer. He is assigned with the task of calculating average waiting time of all the processes by following shortest job first policy.
+
+The shortest job first (SJF) or shortest job next, is a scheduling policy that selects the waiting process with the smallest execution time to execute next.
+
+Given an array of integers bt of size n. Array bt denotes the burst time of each process. Calculate the average waiting time of all the processes and return the nearest integer which is smaller or equal to the output.
+
+Note: Consider all process are available at time 0.
+
+**Your Task:**
+You don't need to read input or print anything. Your task is to complete the function solve() which takes bt[] as input parameter and returns the average waiting time of all the processes.
+
+**Expected Time Complexity:** O(nlog(n))
+**Expected Auxiliary Space:** O(1)
+
+_Link:_ [GFG SJF Scheduling](https://www.geeksforgeeks.org/problems/shortest-job-first/1)
 
 **Examples**  
 ```
-Input: arr = [3,1,4,3]  Output: 3
+Input:
+n = 5
+bt = [4,3,7,1,2]
+Output: 4
+Explanation: After sorting burst times by shortest job policy, calculated average waiting time is 4.
 ```
+```
+Input:
+n = 4
+arr = [1,2,3,4]
+Output: 2
+Explanation: After sorting burst times by shortest job policy, calculated average waiting time is 2.
+```
+
+**Constraints**  
+- `1 <= n <= 10^5`
+- `1 <= arr[i] <= 10^5`
 
 ```java
 /*
@@ -315,14 +360,38 @@ class Solution {
 
 ### 2.2 Job Sequencing Problem [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Maximize profit by scheduling jobs before deadlines.  
-_Link:_ [GFG Job Sequencing](https://www.geeksforgeeks.org/job-sequencing-problem/)
+You are given two arrays: deadline[], and profit[], which represent a set of jobs, where each job is associated with a deadline, and a profit. Each job takes 1 unit of time to complete, and only one job can be scheduled at a time. You will earn the profit associated with a job only if it is completed by its deadline.
+
+Your task is to find:
+
+- The maximum number of jobs that can be completed within their deadlines.
+- The total maximum profit earned by completing those jobs.
+
+_Link:_ [GFG Job Sequencing](https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1)
 
 **Examples**  
 ```
-Input: jobs = {{1,4,20},{2,1,10},{3,1,40},{4,1,30}}  
-Output: {2, 60}
+Input: deadline[] = [4, 1, 1, 1], profit[] = [20, 10, 40, 30]
+Output: [2, 60]
+Explanation: Job1 and Job3 can be done with maximum profit of 60 (20+40).
 ```
+
+```
+Input: deadline[] = [2, 1, 2, 1, 1], profit[] = [100, 19, 27, 25, 15]
+Output: [2, 127]
+Explanation: Job1 and Job3 can be done with maximum profit of 127 (100+27).
+```
+
+```
+Input: deadline[] = [3, 1, 2, 2], profit[] = [50, 10, 20, 30]
+Output: [3, 100]
+Explanation: Job1, Job3 and Job4 can be completed with a maximum profit of 100 (50 + 20 + 30).
+```
+
+**Constraints**  
+- `1 ≤ deadline.size() == profit.size() ≤ 10^5`
+- `1 ≤ deadline[i] ≤ deadline.size()`
+- `1 ≤ profit[i] ≤ 500`
 
 ```java
 /*
@@ -383,14 +452,33 @@ class Solution {
 
 ### 2.3 N Meetings in One Room [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Maximize number of non-overlapping meetings given start and end times.  
-_Link:_ [GFG N Meetings](https://www.geeksforgeeks.org/n-meetings-in-one-room/)
+You are given timings of n meetings in the form of (start[i], end[i]) where start[i] is the start time of meeting i and end[i] is the finish time of meeting i. Return the maximum number of meetings that can be accommodated in a single meeting room, when only one meeting can be held in the meeting room at a particular time. 
+
+Note: The start time of one chosen meeting can't be equal to the end time of the other chosen meeting.
+
+_Link:_ [GFG N Meetings](https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1)
 
 **Examples**  
 ```
-Input: start = [1,3,0,5,8,5], end = [2,4,6,7,9,9]  
+Input: start[] = [1, 3, 0, 5, 8, 5], end[] =  [2, 4, 6, 7, 9, 9]
 Output: 4
+Explanation: Maximum four meetings can be held with given start and end timings. The meetings are - (1, 2), (3, 4), (5,7) and (8,9)
 ```
+
+```
+Input: start[] = [10, 12, 20], end[] = [20, 25, 30]
+Output: 1
+Explanation: Only one meetings can be held with given start and end timings.
+```
+
+```
+Input: start[] = [1, 2], end[] = [100, 99]
+Output: 1
+```
+
+**Constraints**  
+- `1 ≤ n ≤ 10^5`
+- `0 ≤ start[i] < end[i] ≤ 10^6`
 
 ```java
 /*
@@ -464,13 +552,35 @@ class Meeting {
 
 ### 2.4 Non-overlapping Intervals [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Return minimum intervals to remove so remaining are non-overlapping.  
+Given an array of intervals intervals where intervals[i] = [start[i], end[i]], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.
+
 _Link:_ [LeetCode 435](https://leetcode.com/problems/non-overlapping-intervals/)
 
 **Examples**  
 ```
-Input: intervals = [[1,2],[2,3],[3,4],[1,3]]  Output: 1
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+Output: 1
+Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
 ```
+
+```
+Input: intervals = [[1,2],[1,2],[1,2]]
+Output: 2
+Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.
+```
+
+```
+Input: intervals = [[1,2],[2,3]]
+Output: 0
+Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
+```
+
+**Constraints**  
+- `1 <= intervals.length <= 10^5`
+- `intervals[i].length == 2`
+- `-5 * 10^4 <= start[i] < end[i] <= 5 * 10^4`
 
 ```java
 /*
@@ -517,7 +627,14 @@ class Solution {
 
 ### 2.5 Insert Interval [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Insert and merge a new interval into sorted list of non-overlapping intervals.  
+You are given an array of non-overlapping intervals intervals where intervals[i] = [start[i], end[i]] represent the start and the end of the ith interval and intervals is sorted in ascending order by start[i]. You are also given an interval newInterval = [start, end] that represents the start and end of another interval.
+
+Insert newInterval into intervals such that intervals is still sorted in ascending order by start[i] and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+
+Return intervals after the insertion.
+
+Note that you don't need to modify intervals in-place. You can make a new array and return it.
+
 _Link:_ [LeetCode 57](https://leetcode.com/problems/insert-interval/)
 
 **Examples**  
@@ -525,6 +642,20 @@ _Link:_ [LeetCode 57](https://leetcode.com/problems/insert-interval/)
 Input: intervals = [[1,3],[6,9]], newInterval = [2,5]  
 Output: [[1,5],[6,9]]
 ```
+
+```
+Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
+Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+```
+
+**Constraints**  
+- `0 <= intervals.length <= 10^4`
+- `intervals[i].length == 2`
+- `0 <= start[i] <= end[i] <= 10^5`
+- `intervals is sorted by start[i] in ascending order.`
+- `newInterval.length == 2`
+- `0 <= start <= end <= 10^5`
 
 ```java
 /*
@@ -579,14 +710,36 @@ class Solution {
 
 ### 2.6 Minimum Platforms [[Back to Scheduling and Interval Problems](#scheduling-and-interval-problems)]
 **Problem Statement**  
-Find minimum number of platforms needed so no train waits given arrival and departure arrays.  
-_Link:_ [LeetCode 253](https://leetcode.com/problems/meeting-rooms-ii/)
+You are given the arrival times arr[] and departure times dep[] of all trains that arrive at a railway station on the same day. Your task is to determine the minimum number of platforms required at the station to ensure that no train is kept waiting.
+
+At any given time, the same platform cannot be used for both the arrival of one train and the departure of another. Therefore, when two trains arrive at the same time, or when one arrives before another departs, additional platforms are required to accommodate both trains.
+
+Note: Time intervals are in the 24-hour format(HHMM) , where the first two characters represent hour (between 00 to 23 ) and the last two characters represent minutes (this will be <= 59 and >= 0).
+
+_Link:_ [LeetCode 253](https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1)
 
 **Examples**  
 ```
-Input: arrival = [900,940,950,1100,1500,1800], departure = [910,1200,1120,1130,1900,2000]
+Input: arr[] = [900, 940, 950, 1100, 1500, 1800], dep[] = [910, 1200, 1120, 1130, 1900, 2000]
 Output: 3
+Explanation: There are three trains during the time 9:40 to 12:00. So we need a minimum of 3 platforms.
 ```
+
+```
+Input: arr[] = [900, 1235, 1100], dep[] = [1000, 1240, 1200]
+Output: 1
+Explanation: All train times are mutually exclusive. So we need only one platform
+```
+
+```
+Input: arr[] = [1000, 935, 1100], dep[] = [1200, 1240, 1130]
+Output: 3
+Explanation: All 3 trains have to be there from 11:00 to 11:30
+```
+
+**Constraints**  
+- `1≤ number of trains ≤ 50000`
+- `0000 ≤ arr[i] ≤ dep[i] ≤ 2359`
 
 ```java
 /*
@@ -645,7 +798,15 @@ class Solution {
 
 ### 3.1 Valid Parenthesis Checker [[Back to Hard](#hard)]
 **Problem Statement**  
-Check if string containing '(', ')', '*' is valid. '*' can be '(', ')' or empty.  
+Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid.
+
+The following rules define a valid string:
+
+- Any left parenthesis '(' must have a corresponding right parenthesis ')'.
+- Any right parenthesis ')' must have a corresponding left parenthesis '('.
+- Left parenthesis '(' must go before the corresponding right parenthesis ')'.
+- '*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string "".
+
 _Link:_ [LeetCode 678](https://leetcode.com/problems/valid-parenthesis-string/)
 
 **Examples**  
@@ -657,6 +818,14 @@ Output: true
 Input: s = "(*)"
 Output: true
 ```
+```
+Input: s = "(*))"
+Output: true
+```
+
+**Constraints**  
+- `1 <= s.length <= 100`
+- `s[i] is '(', ')' or '*'.`
 
 ```java
 /*
@@ -741,18 +910,33 @@ class Solution {
 
 ### 3.2 Candy [[Back to Hard](#hard)]
 **Problem Statement**  
-Distribute candies such that children with higher rating get more candy than neighbor.  
+There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.
+
+You are giving candies to these children subjected to the following requirements:
+
+Each child must have at least one candy.
+Children with a higher rating get more candies than their neighbors.
+Return the minimum number of candies you need to have to distribute the candies to the children.
+
 _Link:_ [LeetCode 135](https://leetcode.com/problems/candy/)
 
 **Examples**  
 ```
 Input: ratings = [1,0,2]
 Output: 5
+Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
 ```  
 ```
 Input: ratings = [1,2,2]
 Output: 4
+Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
+The third child gets 1 candy because it satisfies the above two conditions.
 ```
+
+**Constraints**  
+- `n == ratings.length`
+- `1 <= n <= 2 * 10^4`
+- `0 <= ratings[i] <= 2 * 10^4`
 
 ```java
 /*
@@ -887,14 +1071,32 @@ class Solution {
 
 ### 3.3 Fractional Knapsack [[Back to Hard](#hard)]
 **Problem Statement**  
-Maximize value with fractional items given capacity.  
-_Link:_ [GFG Fractional Knapsack](https://www.geeksforgeeks.org/fractional-knapsack-problem/)
+Given two arrays, val[] and wt[], representing the values and weights of items, and an integer capacity representing the maximum weight a knapsack can hold, determine the maximum total value that can be achieved by putting items in the knapsack. You are allowed to break items into fractions if necessary.
+Return the maximum value as a double, rounded to 6 decimal places.
+
+_Link:_ [GFG Fractional Knapsack](https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1)
 
 **Examples**  
 ```
-Input: values = [60,100,120], weights = [10,20,30], W = 50
-Output: 240.0
+Input: val[] = [60, 100, 120], wt[] = [10, 20, 30], capacity = 50
+Output: 240.000000
+Explanation: Take the item with value 60 and weight 10, value 100 and weight 20 and split the third item with value 120 and weight 30, to fit it into weight 20. so it becomes (120/30)*20=80, so the total value becomes 60+100+80.0=240.0 Thus, total maximum value of item we can have is 240.00 from the given capacity of sack. 
 ```
+```
+Input: val[] = [60, 100], wt[] = [10, 20], capacity = 50
+Output: 160.000000
+Explanation: Take both the items completely, without breaking. Total maximum value of item we can have is 160.00 from the given capacity of sack.
+```
+```
+Input: val[] = [10, 20, 30], wt[] = [5, 10, 15], capacity = 100
+Output: 60.000000
+Explanation: In this case, the knapsack capacity exceeds the combined weight of all items (5 + 10 + 15 = 30). Therefore, we can take all items completely, yielding a total maximum value of 10 + 20 + 30 = 60.000000.
+```
+
+**Constraints**  
+- `1 <= val.size=wt.size <= 10^5`
+- `1 <= capacity <= 10^9`
+- `1 <= val[i], wt[i] <= 10^4`
 
 ```java
 /*
